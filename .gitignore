@@ -1,3 +1,5 @@
+queries/format_string/
+
 # Rust artifacts
 Cargo.lock
 target/
