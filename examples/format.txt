@@ -1,0 +1,15 @@
+First, thou shalt count to    {0}
+Bring me a {}
+From {} to {}
+My quest is {name}
+Weight in tons {0.weight}
+Units destroyed: {players[0]}
+{hello[world].this.is.a[program]!r:<20}
+Harold's a clever {0!s}
+Bring out the holy {name!r:>20}
+This are some braces {{  }}
+More {!a}
+int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}
+{0.attr[ibute].hey}
+
+# vim: ft=format_string
