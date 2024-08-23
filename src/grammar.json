@@ -1,9 +1,9 @@
 {
   "name": "format_string",
   "rules": {
-    "source_file": {
+    "changeme": {
       "type": "STRING",
-      "value": "hello"
+      "value": ""
     }
   },
   "extras": [
