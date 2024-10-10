@@ -1,0 +1,38 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "format_string",
+      "camelcase": "FormatString",
+      "scope": "source.format_string",
+      "path": ".",
+      "file-types": [
+        ".format-string"
+      ],
+      "highlights": "queries/highlights.scm",
+      "injection-regex": "^format_string$"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "FormatString grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Omar Valdez",
+        "email": "omarantoniovaldezf2@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/ValdezFOmar/tree-sitter-format-string"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}

@@ -43,12 +43,5 @@
     "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",
     "test": "node --test bindings/node/*_test.js"
-  },
-  "tree-sitter": [
-    {
-      "scope": "source.format_string",
-      "highlights": "queries/highlights.scm",
-      "injection-regex": "^format_string$"
-    }
-  ]
+  }
 }
