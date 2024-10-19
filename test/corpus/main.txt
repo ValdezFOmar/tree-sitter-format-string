@@ -3,6 +3,7 @@ Escape curly braces
 ==================================================
 This is not an {{ interpolation }}
 --------------------------------------------------
+
 (text)
 
 ==================================================
@@ -14,6 +15,7 @@ With a number {0}
 attribute {hello.world}
 item {dict[key]}
 --------------------------------------------------
+
 (text
   (replacement)
   (replacement
@@ -36,6 +38,7 @@ To repr {var!r}
 To string {!s}
 To ascii {var!a}
 --------------------------------------------------
+
 (text
   (replacement
     argument: (identifier)
@@ -45,3 +48,70 @@ To ascii {var!a}
   (replacement
     argument: (identifier)
     conversion: (conversion)))
+
+==================================================
+Alignment
+==================================================
+{:<}
+{:>}
+{:=}
+{:^}
+{:-^}
+{:<<}
+{:>>}
+{:^=}
+{:=^}
+--------------------------------------------------
+
+(text
+  (replacement
+    format: (format_spec
+      (align)))
+  (replacement
+    format: (format_spec
+      (align)))
+  (replacement
+    format: (format_spec
+      (align)))
+  (replacement
+    format: (format_spec
+      (align)))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character)))))
+
+==================================================
+Sign
+==================================================
+{:+}
+{:-}
+{: }
+--------------------------------------------------
+
+(text
+  (replacement
+    format: (format_spec
+      (sign)))
+  (replacement
+    format: (format_spec
+      (sign)))
+  (replacement
+    format: (format_spec
+      (sign))))

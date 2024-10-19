@@ -1,5 +1,21 @@
 [
   {
+    "type": "align",
+    "named": true,
+    "fields": {
+      "fill": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "attribute_expression",
     "named": true,
     "fields": {
@@ -38,9 +54,23 @@
     }
   },
   {
-    "type": "format_specification",
+    "type": "format_spec",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "align",
+          "named": true
+        },
+        {
+          "type": "sign",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "item_expression",
@@ -125,12 +155,17 @@
         "required": false,
         "types": [
           {
-            "type": "format_specification",
+            "type": "format_spec",
             "named": true
           }
         ]
       }
     }
+  },
+  {
+    "type": "sign",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "text",
@@ -157,12 +192,32 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
   {
     "type": "]",
     "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "character",
+    "named": true
   },
   {
     "type": "conversion",

@@ -1,6 +1,9 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+const ALIGN_OPTIONS = ['<', '>', '=', '^'];
+const SIGN_PATTERN = /[-+ ]/;
+
 module.exports = grammar({
   name: 'format_string',
 
@@ -13,7 +16,7 @@ module.exports = grammar({
       '{',
       optional(field('argument', $._expression)),
       optional(field('conversion', $.conversion)),
-      optional(field('format', $.format_specification)),
+      optional(field('format', $.format_spec)),
       '}'
     ),
 
@@ -37,13 +40,29 @@ module.exports = grammar({
       $.item_expression,
     ),
 
-    // TODO: Could be more specific, but might cause problems with
-    // conflicting grammar rules between python and rust, simple for now
-    format_specification: _ => seq(':', /[^}]+/),
+    format_spec: $ => seq(
+      ':',
+      optional($.align),
+      optional($.sign),
+    ),
+
+    align: $ => seq(
+      field('fill', alias(
+        choice(
+          ...ALIGN_OPTIONS,
+          SIGN_PATTERN,
+          optional(/[^{}]/)
+        ),
+        $.character
+      )),
+      choice(...ALIGN_OPTIONS),
+    ),
+
+    sign: _ => SIGN_PATTERN,
 
     // TODO: Python uses a wider range of characters for its identifiers
     identifier: _ => /[a-zA-Z_][a-zA-Z0-9_]*/,
     integer: _ => /[0-9]+/,
     item_string: _ => /[^\]]+/,
-  }
+  },
 });

@@ -73,7 +73,7 @@
               "name": "format",
               "content": {
                 "type": "SYMBOL",
-                "name": "format_specification"
+                "name": "format_spec"
               }
             },
             {
@@ -200,7 +200,7 @@
         }
       ]
     },
-    "format_specification": {
+    "format_spec": {
       "type": "SEQ",
       "members": [
         {
@@ -208,10 +208,106 @@
           "value": ":"
         },
         {
-          "type": "PATTERN",
-          "value": "[^}]+"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "align"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "sign"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
+    },
+    "align": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "fill",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "<"
+                },
+                {
+                  "type": "STRING",
+                  "value": ">"
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "STRING",
+                  "value": "^"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[-+ ]"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "PATTERN",
+                      "value": "[^{}]"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            "named": true,
+            "value": "character"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "<"
+            },
+            {
+              "type": "STRING",
+              "value": ">"
+            },
+            {
+              "type": "STRING",
+              "value": "="
+            },
+            {
+              "type": "STRING",
+              "value": "^"
+            }
+          ]
+        }
+      ]
+    },
+    "sign": {
+      "type": "PATTERN",
+      "value": "[-+ ]"
     },
     "identifier": {
       "type": "PATTERN",
