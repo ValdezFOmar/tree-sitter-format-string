@@ -1,0 +1,47 @@
+==================================================
+Escape curly braces
+==================================================
+This is not an {{ interpolation }}
+--------------------------------------------------
+(text)
+
+==================================================
+Interpolation
+==================================================
+Empty {}
+This is an {interpolation}
+With a number {0}
+attribute {hello.world}
+item {dict[key]}
+--------------------------------------------------
+(text
+  (replacement)
+  (replacement
+    argument: (identifier))
+  (replacement
+    argument: (integer))
+  (replacement
+    argument: (attribute_expression
+      object: (identifier)
+      attribute: (identifier)))
+  (replacement
+    argument: (item_expression
+      object: (identifier)
+      item: (item_string))))
+
+==================================================
+Interpolation with conversion
+==================================================
+To repr {var!r}
+To string {!s}
+To ascii {var!a}
+--------------------------------------------------
+(text
+  (replacement
+    argument: (identifier)
+    conversion: (conversion))
+  (replacement
+    conversion: (conversion))
+  (replacement
+    argument: (identifier)
+    conversion: (conversion)))
