@@ -66,11 +66,37 @@
           "named": true
         },
         {
+          "type": "grouping_option",
+          "named": true
+        },
+        {
+          "type": "precision",
+          "named": true
+        },
+        {
           "type": "sign",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "width",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "grouping_option",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "integer",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "item_expression",
@@ -184,6 +210,20 @@
     }
   },
   {
+    "type": "type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "width",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
     "type": ".",
     "named": false
   },
@@ -228,12 +268,16 @@
     "named": true
   },
   {
-    "type": "integer",
+    "type": "item_string",
     "named": true
   },
   {
-    "type": "item_string",
+    "type": "precision",
     "named": true
+  },
+  {
+    "type": "z",
+    "named": false
   },
   {
     "type": "{",
