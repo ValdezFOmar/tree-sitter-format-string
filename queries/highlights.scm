@@ -18,11 +18,11 @@
   ">"
   "="
   "^"
-  "z"
-  "#"
   "*"
   (sign)
+  (alternate_form)
   (grouping_option)
+  (zero_normalization)
 ] @character.special
 
 [

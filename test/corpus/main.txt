@@ -125,9 +125,11 @@ Special characters
 --------------------------------------------------
 (text
   (replacement
-    format: (format_spec))
+    format: (format_spec
+      (zero_normalization)))
   (replacement
-    format: (format_spec))
+    format: (format_spec
+      (alternate_form)))
   (replacement
     format: (format_spec
       (width

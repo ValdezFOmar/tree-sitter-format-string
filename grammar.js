@@ -4,9 +4,22 @@
 const ALIGN_OPTIONS = ['<', '>', '=', '^'];
 const SIGN_PATTERN = /[-+ ]/;
 const DIGIT = /\d/;
+const SIGNED_ZERO_NORMALIZATION = 'z';
+const ALTERNATE_FORM = '#';
 const SINGLE_CHAR_TYPE_PATTERN = /[bcdeEfFgGnosxX%p?]/;
 const MULTY_CHAR_TYPE_PATTERN = /[xX]\?/;
 const GROUPING_OPTION_PATTERN = /[,_]/;
+
+const FILL_CHARACTER = choice(
+  ...ALIGN_OPTIONS,
+  SIGN_PATTERN,
+  SIGNED_ZERO_NORMALIZATION,
+  ALTERNATE_FORM,
+  DIGIT,
+  GROUPING_OPTION_PATTERN,
+  SINGLE_CHAR_TYPE_PATTERN,
+  optional(/[^{}]/),
+);
 
 module.exports = grammar({
   name: 'format_string',
@@ -48,8 +61,8 @@ module.exports = grammar({
       ':',
       optional($.align),
       optional($.sign),
-      optional('z'),
-      optional('#'),
+      optional($.zero_normalization),
+      optional($.alternate_form),
       optional($.width),
       optional($.grouping_option),
       optional($.precision),
@@ -57,23 +70,15 @@ module.exports = grammar({
     ),
 
     align: $ => seq(
-      field('fill', alias(
-        choice(
-          ...ALIGN_OPTIONS,
-          SIGN_PATTERN,
-          'z',
-          '#',
-          DIGIT,
-          GROUPING_OPTION_PATTERN,
-          SINGLE_CHAR_TYPE_PATTERN,
-          optional(/[^{}]/)
-        ),
-        $.character
-      )),
+      field('fill', alias(FILL_CHARACTER , $.character)),
       choice(...ALIGN_OPTIONS),
     ),
 
     sign: _ => SIGN_PATTERN,
+
+    zero_normalization: _ => SIGNED_ZERO_NORMALIZATION,
+
+    alternate_form: _ => ALTERNATE_FORM,
 
     width: $ => $._count,
 
