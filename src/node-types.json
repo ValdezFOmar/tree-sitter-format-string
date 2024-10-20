@@ -16,6 +16,11 @@
     }
   },
   {
+    "type": "alternate_form",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "attribute_expression",
     "named": true,
     "fields": {
@@ -66,6 +71,10 @@
           "named": true
         },
         {
+          "type": "alternate_form",
+          "named": true
+        },
+        {
           "type": "grouping_option",
           "named": true
         },
@@ -83,6 +92,10 @@
         },
         {
           "type": "width",
+          "named": true
+        },
+        {
+          "type": "zero_normalization",
           "named": true
         }
       ]
@@ -138,6 +151,44 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "parameter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "precision",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "parameter",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -217,10 +268,37 @@
   {
     "type": "width",
     "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "zero_normalization",
+    "named": true,
     "fields": {}
   },
   {
     "type": "#",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "*",
     "named": false
   },
   {
@@ -269,10 +347,6 @@
   },
   {
     "type": "item_string",
-    "named": true
-  },
-  {
-    "type": "precision",
     "named": true
   },
   {
