@@ -1,5 +1,5 @@
 parser/
-queries/format_string/
+queries/*/
 
 # Rust artifacts
 target/

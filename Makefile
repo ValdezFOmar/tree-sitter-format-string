@@ -4,7 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-format_string
 HOMEPAGE_URL := https://github.com/valdezfomar/tree-sitter-format-string
-VERSION := 0.0.1
+VERSION := 0.1.0
 
 # repository
 SRC_DIR := src
