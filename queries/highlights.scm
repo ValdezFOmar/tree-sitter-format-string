@@ -3,12 +3,7 @@
 (attribute_expression
   attribute: (identifier) @variable.member)
 
-[
-  (integer)
-  (width)
-] @number
-
-(precision) @number.float
+(integer) @number
 
 (item_string) @string
 
@@ -25,6 +20,7 @@
   "^"
   "z"
   "#"
+  "*"
   (sign)
   (grouping_option)
 ] @character.special
@@ -42,6 +38,7 @@
 [
   "{"
   "}"
+  "$"
 ] @punctuation.special
 
 [

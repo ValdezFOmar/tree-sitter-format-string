@@ -12,6 +12,8 @@ More {!a}
 int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}
 {0.attr[ibute].hey}
 
+==== Python format specifier ====
+
 To repr {var!r}
 To string {!s}
 To ascii {var!a}
@@ -24,5 +26,33 @@ Float precision {:.2} {:.10}
 Presentation types
 {:b} {:c} {:d} {:e} {:E} {:f} {:F} {:g}
 {:G} {:n} {:o} {:s} {:x} {:X} {:%}
+
+==== Rust format specifier ====
+
+println!("Hello {:5}!", "x");
+println!("Hello {:1$}!", "x", 5);
+println!("Hello {1:0$}!", 5, "x");
+println!("Hello {:width$}!", "x", width = 5);
+let width = 5;
+println!("Hello {:width$}!", "x");
+
+format!("Hello {:+}!", 5)
+format!("{:#x}!", 27)
+format!("Hello {:05}!", 5)
+format!("Hello {:05}!", -5)
+format!("{:#010x}!", 27)
+
+println!("Hello {0} is {1:.5}", "x", 0.01);
+println!("Hello {1} is {2:.0$}", 5, "x", 0.01);
+println!("Hello {0} is {2:.1$}", "x", 5, 0.01);
+println!("Hello {} is {:.*}",    "x", 5, 0.01);
+println!("Hello {1} is {2:.*}",  5, "x", 0.01);
+println!("Hello {} is {2:.*}",   "x", 5, 0.01);
+println!("Hello {} is {number:.prec$}", "x", prec = 5, number = 0.01);
+println!("{}, `{name:.*}` has 3 fractional digits", "Hello", 3, name=1234.56);
+println!("{}, `{name:.*}` has 3 characters", "Hello", 3, name="1234.56");
+println!("{}, `{name:>8.*}` has 3 right-aligned characters", "Hello", 3, name="1234.56");
+print!("{0:.1$e}", 12345, 3);
+print!("{0:.1$e}", 12355, 3);
 
 # vim: ft=format_string

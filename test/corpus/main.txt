@@ -130,7 +130,8 @@ Special characters
     format: (format_spec))
   (replacement
     format: (format_spec
-      (width))))
+      (width
+        (integer)))))
 
 ==================================================
 Width
@@ -138,17 +139,45 @@ Width
 {:10}
 {:48}
 {:01}
+Rust specific
+{:0$}
+{:10$}
+{:var42$}
+{:width$}
 --------------------------------------------------
 (text
   (replacement
     format: (format_spec
-      (width)))
+      (width
+        (integer))))
   (replacement
     format: (format_spec
-      (width)))
+      (width
+        (integer))))
   (replacement
     format: (format_spec
-      (width))))
+      (width
+        (integer))))
+  (replacement
+    format: (format_spec
+      (width
+        (parameter
+          (integer)))))
+  (replacement
+    format: (format_spec
+      (width
+        (parameter
+          (integer)))))
+  (replacement
+    format: (format_spec
+      (width
+        (parameter
+          (identifier)))))
+  (replacement
+    format: (format_spec
+      (width
+        (parameter
+          (identifier))))))
 
 ==================================================
 Grouping option
@@ -169,11 +198,30 @@ Float precision
 ==================================================
 {:.2}
 {:.10}
+Rust specific
+{:.1$}
+{:.precision$}
+{:.*}
 --------------------------------------------------
 (text
   (replacement
     format: (format_spec
-      (precision)))
+      (precision
+        (integer))))
+  (replacement
+    format: (format_spec
+      (precision
+        (integer))))
+  (replacement
+    format: (format_spec
+      (precision
+        (parameter
+          (integer)))))
+  (replacement
+    format: (format_spec
+      (precision
+        (parameter
+          (identifier)))))
   (replacement
     format: (format_spec
       (precision))))
@@ -181,6 +229,7 @@ Float precision
 ==================================================
 Presentation types
 ==================================================
+Python types
 {:b}
 {:c}
 {:d}
@@ -196,8 +245,25 @@ Presentation types
 {:x}
 {:X}
 {:%}
+Rust types
+{:?}
+{:x?}
+{:X?}
+{:p}
 --------------------------------------------------
 (text
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
   (replacement
     format: (format_spec
       (type)))
@@ -243,3 +309,21 @@ Presentation types
   (replacement
     format: (format_spec
       (type))))
+
+==================================================
+Empty format specification
+==================================================
+{:}
+{var:}
+{var!r:}
+--------------------------------------------------
+(text
+  (replacement
+    format: (format_spec))
+  (replacement
+    argument: (identifier)
+    format: (format_spec))
+  (replacement
+    argument: (identifier)
+    conversion: (conversion)
+    format: (format_spec)))
