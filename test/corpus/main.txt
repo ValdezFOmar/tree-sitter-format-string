@@ -115,3 +115,131 @@ Sign
   (replacement
     format: (format_spec
       (sign))))
+
+==================================================
+Special characters
+==================================================
+{:z}
+{:#}
+{:0}
+--------------------------------------------------
+(text
+  (replacement
+    format: (format_spec))
+  (replacement
+    format: (format_spec))
+  (replacement
+    format: (format_spec
+      (width))))
+
+==================================================
+Width
+==================================================
+{:10}
+{:48}
+{:01}
+--------------------------------------------------
+(text
+  (replacement
+    format: (format_spec
+      (width)))
+  (replacement
+    format: (format_spec
+      (width)))
+  (replacement
+    format: (format_spec
+      (width))))
+
+==================================================
+Grouping option
+==================================================
+{:,}
+{:_}
+--------------------------------------------------
+(text
+  (replacement
+    format: (format_spec
+      (grouping_option)))
+  (replacement
+    format: (format_spec
+      (grouping_option))))
+
+==================================================
+Float precision
+==================================================
+{:.2}
+{:.10}
+--------------------------------------------------
+(text
+  (replacement
+    format: (format_spec
+      (precision)))
+  (replacement
+    format: (format_spec
+      (precision))))
+
+==================================================
+Presentation types
+==================================================
+{:b}
+{:c}
+{:d}
+{:e}
+{:E}
+{:f}
+{:F}
+{:g}
+{:G}
+{:n}
+{:o}
+{:s}
+{:x}
+{:X}
+{:%}
+--------------------------------------------------
+(text
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type)))
+  (replacement
+    format: (format_spec
+      (type))))

@@ -12,4 +12,17 @@ More {!a}
 int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}
 {0.attr[ibute].hey}
 
+To repr {var!r}
+To string {!s}
+To ascii {var!a}
+Fill/Align {:<} {:>} {:=} {:^} {:-^} {:<<} {:>>} {:^=} {:=^}
+Sign {:+} {:-} {: }
+Special characters {:z} {:#} {:0}
+Width {:10} {:48} {:01}
+Grouping option {:,} {:_}
+Float precision {:.2} {:.10}
+Presentation types
+{:b} {:c} {:d} {:e} {:E} {:f} {:F} {:g}
+{:G} {:n} {:o} {:s} {:x} {:X} {:%}
+
 # vim: ft=format_string

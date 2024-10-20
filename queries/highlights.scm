@@ -3,14 +3,31 @@
 (attribute_expression
   attribute: (identifier) @variable.member)
 
-(integer) @number
+[
+  (integer)
+  (width)
+] @number
+
+(precision) @number.float
 
 (item_string) @string
 
 (conversion) @function.macro
 
-; Highlights for format spec...
-; (format)
+(type) @type
+
+(character) @character
+
+[
+  "<"
+  ">"
+  "="
+  "^"
+  "z"
+  "#"
+  (sign)
+  (grouping_option)
+] @character.special
 
 [
   "."

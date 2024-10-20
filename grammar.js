@@ -3,6 +3,10 @@
 
 const ALIGN_OPTIONS = ['<', '>', '=', '^'];
 const SIGN_PATTERN = /[-+ ]/;
+const DIGIT = /\d/;
+const INTEGER = repeat1(DIGIT);
+const TYPE_PATTERN = /[bcdeEfFgGnosxX%]/;
+const GROUPING_OPTION_PATTERN = /[,_]/;
 
 module.exports = grammar({
   name: 'format_string',
@@ -44,6 +48,12 @@ module.exports = grammar({
       ':',
       optional($.align),
       optional($.sign),
+      optional('z'),
+      optional('#'),
+      optional($.width),
+      optional($.grouping_option),
+      optional($.precision),
+      optional($.type),
     ),
 
     align: $ => seq(
@@ -51,6 +61,11 @@ module.exports = grammar({
         choice(
           ...ALIGN_OPTIONS,
           SIGN_PATTERN,
+          'z',
+          '#',
+          DIGIT,
+          GROUPING_OPTION_PATTERN,
+          TYPE_PATTERN,
           optional(/[^{}]/)
         ),
         $.character
@@ -60,9 +75,17 @@ module.exports = grammar({
 
     sign: _ => SIGN_PATTERN,
 
+    width: _ => INTEGER,
+
+    grouping_option: _ => GROUPING_OPTION_PATTERN,
+
+    precision: _ => token(seq('.', INTEGER)),
+
+    type: _ => TYPE_PATTERN,
+
     // TODO: Python uses a wider range of characters for its identifiers
     identifier: _ => /[a-zA-Z_][a-zA-Z0-9_]*/,
-    integer: _ => /[0-9]+/,
+    integer: _ => INTEGER,
     item_string: _ => /[^\]]+/,
   },
 });
