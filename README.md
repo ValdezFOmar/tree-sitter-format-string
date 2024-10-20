@@ -11,6 +11,94 @@
 A tree-sitter parser for format strings using curly braces (`{}`),
 like python's `str.format` method or rust's `format!` macro.
 
+## Injections
+
+### Python
+
+Python only uses formatted strings in the `str.format` method, commonly
+used like this:
+
+```python
+'Hello {}'.format('world')
+'{:.4f}'.format(math.pi)
+```
+
+Query for `tree-sitter-python`'s `injections.scm`:
+
+```query
+((call
+  function: (attribute
+    object: (string
+      (string_content) @injection.content)
+    attribute: (identifier) @_format))
+  (#eq? @_format "format")
+  (#set! injection.language "format_string"))
+```
+
+### Rust
+
+Rust uses formatted strings in the following macros:
+
+- `format!`
+- `write!`
+- `writeln!`
+- `print!`
+- `println!`
+- `eprint!`
+- `eprintln!`
+- `format_args!`
+- `assert!`
+- `assert_eq!`
+- `assert_ne!`
+- `assert_matches!`
+- `debug_assert!`
+- `debug_assert_eq!`
+- `debug_assert_ne!`
+- `debug_assert_matches!`
+
+Queries for `tree-sitter-rust`'s `injections.scm`:
+
+```query
+((macro_invocation
+  macro: (identifier) @_macro
+  (token_tree
+    .
+    (string_literal
+      (string_content) @injection.content)))
+  (#any-of? @_macro "print" "println" "eprint" "eprintln" "format" "format_args")
+  (#set! injection.language "format_string"))
+
+((macro_invocation
+  macro: (identifier) @_macro
+  (token_tree
+    .
+    (_)
+    .
+    (string_literal
+      (string_content) @injection.content)))
+  (#any-of? @_macro "write" "writeln" "assert" "debug_assert")
+  (#set! injection.language "format_string"))
+
+((macro_invocation
+  macro: (identifier) @_macro
+  (token_tree
+    .
+    (_)
+    .
+    (_)
+    .
+    (string_literal
+      (string_content) @injection.content)))
+  (#any-of? @_macro
+    "assert_eq"
+    "assert_ne"
+    "assert_matches"
+    "debug_assert_eq"
+    "debug_assert_ne"
+    "debug_assert_matches")
+  (#set! injection.language "format_string"))
+```
+
 ## References
 
 - [Rust format syntax](https://doc.rust-lang.org/std/fmt/#syntax)
