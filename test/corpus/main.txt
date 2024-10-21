@@ -329,3 +329,94 @@ Empty format specification
     argument: (identifier)
     conversion: (conversion)
     format: (format_spec)))
+
+==================================================
+Special characters as fill characters
+==================================================
+{:>>}
+{:<>}
+{:=>}
+{:^>}
+{:->}
+{:+>}
+{: >}
+{:z>}
+{:#>}
+{:0>}
+{:$>}
+{:,>}
+{:_>}
+{:.>}
+{:%>}
+{:?>}
+{:X>} Not necessary to test all the types
+--------------------------------------------------
+(text
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character))))
+  (replacement
+    format: (format_spec
+      (align
+        fill: (character)))))

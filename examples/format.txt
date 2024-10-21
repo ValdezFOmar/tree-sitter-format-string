@@ -11,6 +11,8 @@ This are some braces {{  }}
 More {!a}
 int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}
 {0.attr[ibute].hey}
+"{:.4f}".format(math.pi)
+{:.^} Dot as fill character
 
 ==== Python format specifier ====
 

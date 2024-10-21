@@ -11,6 +11,7 @@ const MULTY_CHAR_TYPE_PATTERN = /[xX]\?/;
 const GROUPING_OPTION_PATTERN = /[,_]/;
 
 const FILL_CHARACTER = choice(
+  '.',  // Dot for float precision
   ...ALIGN_OPTIONS,
   SIGN_PATTERN,
   SIGNED_ZERO_NORMALIZATION,
