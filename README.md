@@ -15,6 +15,9 @@ like python's `str.format` method or rust's `format!` macro.
 
 ### Python
 
+<details>
+  <summary>Queries</summary>
+
 Python only uses formatted strings in the `str.format` method, commonly
 used like this:
 
@@ -35,7 +38,12 @@ Query for `tree-sitter-python`'s `injections.scm`:
   (#set! injection.language "format_string"))
 ```
 
+</details>
+
 ### Rust
+
+<details>
+  <summary>Queries</summary>
 
 Rust uses formatted strings in the following macros:
 
@@ -65,7 +73,13 @@ Queries for `tree-sitter-rust`'s `injections.scm`:
     .
     (string_literal
       (string_content) @injection.content)))
-  (#any-of? @_macro "print" "println" "eprint" "eprintln" "format" "format_args")
+  (#any-of? @_macro
+    "print"
+    "println"
+    "eprint"
+    "eprintln"
+    "format"
+    "format_args")
   (#set! injection.language "format_string"))
 
 ((macro_invocation
@@ -98,6 +112,8 @@ Queries for `tree-sitter-rust`'s `injections.scm`:
     "debug_assert_matches")
   (#set! injection.language "format_string"))
 ```
+
+</details>
 
 ## References
 
