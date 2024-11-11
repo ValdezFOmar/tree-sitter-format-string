@@ -1,3 +1,9 @@
+/**
+ * @file format-string grammar for tree-sitter
+ * @author Omar Valdez <omarantoniovaldezf2@gmail.com>
+ * @license MIT
+ */
+
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
@@ -10,6 +16,10 @@ const SINGLE_CHAR_TYPE_PATTERN = /[bcdeEfFgGnosxX%p?]/;
 const MULTY_CHAR_TYPE_PATTERN = /[xX]\?/;
 const GROUPING_OPTION_PATTERN = /[,_]/;
 
+// Since any special characters can be a fill character,
+// all of them need to be explicitly included in this array
+// so tree-sitter can resolve when it's a special character or
+// a fill character.
 const FILL_CHARACTER = choice(
   '.',  // Dot for float precision
   ...ALIGN_OPTIONS,
@@ -72,7 +82,7 @@ module.exports = grammar({
 
     align: $ => seq(
       field('fill', alias(FILL_CHARACTER , $.character)),
-      choice(...ALIGN_OPTIONS),
+      field('option', choice(...ALIGN_OPTIONS)),
     ),
 
     sign: _ => SIGN_PATTERN,

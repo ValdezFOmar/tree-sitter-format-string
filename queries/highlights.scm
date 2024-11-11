@@ -30,6 +30,9 @@
   ":"
 ] @punctuation.delimiter
 
+(precision
+  "." @number)
+
 [
   "["
   "]"

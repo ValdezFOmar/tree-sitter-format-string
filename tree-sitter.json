@@ -7,7 +7,7 @@
       "scope": "source.format_string",
       "path": ".",
       "file-types": [
-        ".format-string"
+        "format-string"
       ],
       "highlights": "queries/highlights.scm",
       "injection-regex": "^format_string$"
