@@ -12,6 +12,8 @@ updates:
     groups:
       actions:
         patterns: ["*"]
+    # Disable pull requests
+    open-pull-requests-limit: 0
 
   - package-ecosystem: npm
     versioning-strategy: increase
@@ -26,6 +28,8 @@ updates:
     groups:
       npm:
         patterns: ["*"]
+    # Disable pull requests
+    open-pull-requests-limit: 0
 
   # NOTE: uncomment the ecosystems you want to keep up-to-date
 
